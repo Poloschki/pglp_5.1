@@ -32,9 +32,9 @@ public final class Personnel implements Composite {
         private final String fonction;
 
         //Optional
-        private LocalDateTime currentTime = LocalDateTime.now();
+        private final LocalDateTime currentTime = LocalDateTime.now();
         private LocalDateTime naissance = currentTime.withDayOfMonth(1).withYear(1990).withMonth(1);
-        private List<String> telephone = new ArrayList<>();
+        private final List<String> telephone = new ArrayList<>();
 
         public Builder(String nom, String prenom, String fonction) {
             this.nom = nom;
@@ -58,11 +58,4 @@ public final class Personnel implements Composite {
 
     }
 
- /*   public static void main(String[] args) {
-        Personnel p1 = new Personnel
-                .Builder("P1", "P1")
-                .build();
-
-    }
- */
 }

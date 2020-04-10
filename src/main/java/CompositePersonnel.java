@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompositePersonnel implements Composite {
-    private List<Composite> enfantComposite = new ArrayList<Composite>();
+    protected List<Composite> enfantComposite = new ArrayList<>();
 
 
     @Override
