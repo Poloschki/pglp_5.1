@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Personnel implements Composite, java.io.Serializable {
-    private final String nom;
-    private final String prenom;
-    private final String fonction;
-    private final LocalDateTime naissance;
-    private final List<String> telephone;
+    protected final String nom;
+    protected final String prenom;
+    protected final String fonction;
+    protected final LocalDateTime naissance;
+    protected final List<String> telephone;
 
     private Personnel(Builder builder) {
         //Required
