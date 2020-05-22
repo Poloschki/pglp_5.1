@@ -1,6 +1,3 @@
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,21 +18,6 @@ public class CompositePersonnel implements Composite {
 
     public void remove(Composite composite) {
         enfantComposite.remove(composite);
-    }
-
-    public void serialize(String filename, CompositePersonnel personnel) {
-        try {
-            FileOutputStream file = new FileOutputStream(filename);
-            ObjectOutputStream out = new ObjectOutputStream(file);
-
-            out.writeObject(personnel);
-
-            out.close();
-            file.close();
-        } catch (IOException exception) {
-            System.out.println("Exception lors de la serialisation");
-        }
-
     }
 
 }

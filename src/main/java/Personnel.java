@@ -1,11 +1,12 @@
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Personnel implements Composite, java.io.Serializable {
+public final class Personnel implements Composite, Serializable {
     protected final String nom;
     protected final String prenom;
     protected final String fonction;
@@ -61,17 +62,17 @@ public final class Personnel implements Composite, java.io.Serializable {
 
     }
 
-    public void serialize(String filename, Personnel personnel) {
+    public void serialize(String filename) {
         try {
             FileOutputStream file = new FileOutputStream(filename);
             ObjectOutputStream out = new ObjectOutputStream(file);
 
-            out.writeObject(personnel);
+            out.writeObject(this);
 
             out.close();
             file.close();
         } catch (IOException exception) {
-            System.out.println("Exception lors de la serialisation");
+            exception.printStackTrace();
         }
 
     }
