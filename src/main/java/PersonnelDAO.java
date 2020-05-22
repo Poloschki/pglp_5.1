@@ -12,12 +12,12 @@ public class PersonnelDAO extends DAO<Personnel> {
   }
 
   @Override
-  public Personnel find(String id) throws IOException, ClassNotFoundException {
+  public Personnel find(String id) {
     Personnel personnel = null;
-    try (ObjectInputStream input = new ObjectInputStream(new BufferedInputStream(new FileInputStream("personnelDAO")))) {
+    try (ObjectInputStream input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(id)))) {
       personnel = (Personnel) input.readObject();
-    } catch (EOFException ignored) {
-
+    } catch (IOException | ClassNotFoundException e) {
+      e.printStackTrace();
     }
     return personnel;
   }
