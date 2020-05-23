@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositePersonnel implements Composite {
+public class CompositePersonnel implements Composite, Serializable {
     protected List<Composite> enfantComposite = new ArrayList<>();
 
 

@@ -1,16 +1,41 @@
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CompositeDAOTest {
 
+  CompositePersonnel cp;
+  DAO<CompositePersonnel> dao;
+
+  @Before
+  public void init() {
+    cp = new CompositePersonnel();
+    dao = DAOFactory.getCompositeDAO();
+  }
+
   @Test
-  public void create() {
+  public void create() throws IOException, ClassNotFoundException {
+    dao.create(cp);
+    File f = new File("compositeDAO");
+    assertTrue(f.exists());
   }
 
   @Test
   public void find() {
+    dao.create(cp);
+    CompositePersonnel newcp = dao.find("compositeDAO");
+
   }
 
   @Test
   public void delete() {
+    dao.delete("compositeDAO");
+    File f = new File("compositeDAO");
+    assertFalse(f.exists());
   }
 }

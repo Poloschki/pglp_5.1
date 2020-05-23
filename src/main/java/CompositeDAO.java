@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class CompositeDAO extends DAO<CompositePersonnel> {
 
@@ -24,7 +25,7 @@ public class CompositeDAO extends DAO<CompositePersonnel> {
       listresu = (ArrayList<CompositePersonnel>) input.readObject();
       for (CompositePersonnel readcp : listresu) {
         if (readcp.equals(listresu)) {
-          cp = readcp;
+          cp.enfantComposite.addAll((Collection<? extends Composite>) readcp);
         }
       }
     } catch (IOException | ClassNotFoundException e) {
@@ -46,4 +47,4 @@ public class CompositeDAO extends DAO<CompositePersonnel> {
 
   }
 }
-}
+

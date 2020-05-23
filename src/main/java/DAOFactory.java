@@ -3,7 +3,7 @@ public class DAOFactory {
     return new PersonnelDAO();
   }
 
-  public static DAO<CompositeDAO> getCompositeDAO() {
+  public static DAO<CompositePersonnel> getCompositeDAO() {
     return new CompositeDAO();
   }
 }
