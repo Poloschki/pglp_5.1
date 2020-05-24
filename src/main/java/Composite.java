@@ -1,4 +1,4 @@
 public interface Composite {
 
-    void print();
+  void print();
 }

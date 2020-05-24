@@ -2,10 +2,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.IOException;
-
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class CompositeDAOTest {
 
@@ -19,7 +17,7 @@ public class CompositeDAOTest {
   }
 
   @Test
-  public void create() throws IOException, ClassNotFoundException {
+  public void create() {
     dao.create(cp);
     File f = new File("compositeDAO");
     assertTrue(f.exists());
@@ -29,6 +27,7 @@ public class CompositeDAOTest {
   public void find() {
     dao.create(cp);
     CompositePersonnel newcp = dao.find("compositeDAO");
+    assertEquals(newcp.getNom(),cp.getNom());
 
   }
 
